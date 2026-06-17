@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+import { getLang, t, localizePath, locales } from '../i18n/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const lang = getLang(Astro.currentLocale);
+const tr = t(lang);
+const { title, description = tr.meta.siteDescription } = Astro.props;
+const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — ${tr.meta.tagline}`;
+
+const base = Astro.url.pathname.replace(/^\/(ru|uz)(?=\/|$)/, '') || '/';
+const alternates = locales.map((loc) => ({
+  loc,
+  href: new URL(localizePath(base, loc), Astro.site).href,
+}));
+const canonical = new URL(localizePath(base, lang), Astro.site).href;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      // Auto-detect language on first visit (respects an explicit choice).
+      (function () {
+        try {
+          if (sessionStorage.getItem('langRedirected')) return;
+          sessionStorage.setItem('langRedirected', '1');
+          var path = location.pathname;
+          // Only act on the default (unprefixed) pages; respect explicit /ru and /uz URLs.
+          if (/^\/(ru|uz)(?=\/|$)/.test(path)) return;
+          var target = localStorage.getItem('lang');
+          if (!target) {
+            var langs = navigator.languages || [navigator.language || 'en'];
+            for (var i = 0; i < langs.length; i++) {
+              var l = (langs[i] || '').toLowerCase();
+              if (l.indexOf('ru') === 0) { target = 'ru'; break; }
+              if (l.indexOf('uz') === 0) { target = 'uz'; break; }
+            }
+          }
+          if (target === 'ru' || target === 'uz') {
+            var dest = '/' + target + (path === '/' ? '' : path);
+            location.replace(dest + location.search + location.hash);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.loc} href={a.href} />)}
+    <link rel="alternate" hreflang="x-default" href={alternates[0].href} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">{tr.common.skipToContent}</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+
+    <style is:global>
+      .skip-link {
+        position: absolute; left: -999px; top: 0; z-index: 100;
+        background: var(--steel); color: #fff; padding: .6rem 1rem; border-radius: 0 0 4px 0;
+      }
+      .skip-link:focus { left: 0; }
+    </style>
+  </body>
+</html>

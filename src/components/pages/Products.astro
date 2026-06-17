@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBand from '../CtaBand.astro';
+import ProductCard from '../ProductCard.astro';
+import { products, groups } from '../../data/products';
+import { getLang, t } from '../../i18n/utils';
+
+const lang = getLang(Astro.currentLocale);
+const tr = t(lang);
+const base = products.filter((p) => p.group === 'base');
+const electronics = products.filter((p) => p.group === 'electronics');
+---
+
+<Base title={tr.nav.products} description={tr.products.heroLead}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{tr.products.heroEyebrow}</p>
+      <h1>{tr.products.heroH1}</h1>
+      <p class="lead mt-2">{tr.products.heroLead}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="group-head reveal">
+        <h2>{groups.base.title[lang]}</h2>
+        <p class="lead">{groups.base.blurb[lang]}</p>
+      </div>
+      <div class="grid cols-3">
+        {base.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="group-head reveal">
+        <h2>{groups.electronics.title[lang]}</h2>
+        <p class="lead">{groups.electronics.blurb[lang]}</p>
+      </div>
+      <div class="grid cols-3">
+        {electronics.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading={tr.products.ctaHeading} text={tr.products.ctaText} />
+</Base>
+
+<style>
+  .page-hero { background: var(--ink); color: #fff; padding-block: clamp(3.5rem, 8vw, 6rem); }
+  .page-hero h1 { color: #fff; }
+  .page-hero .lead { color: #aebccb; max-width: 60ch; }
+  .page-hero .eyebrow { color: var(--steel-300); }
+  .page-hero .eyebrow::before { background: var(--copper-300); }
+  .group-head { max-width: 640px; margin-bottom: clamp(2rem, 4vw, 3rem); }
+  .group-head .lead { margin-top: .8rem; }
+</style>

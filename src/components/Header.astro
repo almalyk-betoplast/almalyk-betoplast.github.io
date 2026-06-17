@@ -1,0 +1,150 @@
+---
+import { site } from '../data/site';
+import { getLang, t, localizePath, navItems, locales } from '../i18n/utils';
+import { languages } from '../i18n/ui';
+
+const lang = getLang(Astro.currentLocale);
+const tr = t(lang);
+const currentPath = Astro.url.pathname;
+const base = currentPath.replace(/^\/(ru|uz)(?=\/|$)/, '') || '/';
+const isActive = (href: string) => (href === '/' ? base === '/' : base.startsWith(href));
+
+const homeHref = localizePath('/', lang);
+const contactHref = localizePath('/contact', lang);
+---
+
+<header class="hdr" id="site-header">
+  <div class="container hdr__inner">
+    <a href={homeHref} class="brand" aria-label={site.name}>
+      <span class="brand__mark" aria-hidden="true">Cu</span>
+      <span class="brand__text">
+        <strong>Almalyk MMC</strong><span class="brand__sep">–</span><span>Betoplast</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      {navItems.map((item) => (
+        <a href={localizePath(item.href, lang)} class:list={['nav__link', { 'is-active': isActive(item.href) }]}>
+          {tr.nav[item.key]}
+        </a>
+      ))}
+    </nav>
+
+    <div class="langs" role="group" aria-label="Language">
+      {locales.map((loc) => (
+        <a
+          href={localizePath(currentPath, loc)}
+          class:list={['langs__link', { 'is-active': loc === lang }]}
+          hreflang={loc}
+          aria-current={loc === lang ? 'true' : undefined}
+        >{languages[loc].short}</a>
+      ))}
+    </div>
+
+    <a href={contactHref} class="btn btn--primary hdr__cta">{tr.common.getInTouch}</a>
+
+    <button class="hdr__burger" aria-label="Menu" aria-expanded="false" id="burger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    {navItems.map((item) => (
+      <a href={localizePath(item.href, lang)} class:list={['mobile-nav__link', { 'is-active': isActive(item.href) }]}>
+        {tr.nav[item.key]}
+      </a>
+    ))}
+    <div class="mobile-langs">
+      {locales.map((loc) => (
+        <a href={localizePath(currentPath, loc)} class:list={['langs__link', { 'is-active': loc === lang }]} hreflang={loc}>
+          {languages[loc].short}
+        </a>
+      ))}
+    </div>
+    <a href={contactHref} class="btn btn--primary" style="margin: 1rem 1.5rem;">{tr.common.getInTouch}</a>
+  </div>
+</header>
+
+<style>
+  .hdr {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, .88);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
+    transition: box-shadow .25s var(--ease);
+  }
+  .hdr.scrolled { box-shadow: var(--shadow-sm); }
+  .hdr__inner { display: flex; align-items: center; gap: 1.25rem; height: 74px; }
+
+  .brand { display: flex; align-items: center; gap: .7rem; margin-right: auto; }
+  .brand__mark {
+    width: 38px; height: 38px; border-radius: 6px;
+    display: grid; place-items: center;
+    background: var(--steel); color: #fff;
+    font-weight: 800; font-size: 1.05rem; letter-spacing: -.03em;
+  }
+  .brand__text { font-size: 1.02rem; letter-spacing: -.01em; color: var(--ink); display: flex; gap: .35rem; }
+  .brand__text strong { font-weight: 700; }
+  .brand__sep { color: var(--steel-300); }
+
+  .nav { display: flex; gap: .2rem; }
+  .nav__link {
+    padding: .5rem .7rem; border-radius: var(--radius);
+    font-size: .9rem; font-weight: 500; color: var(--muted);
+    transition: color .18s var(--ease), background .18s var(--ease);
+    white-space: nowrap;
+  }
+  .nav__link:hover { color: var(--ink); background: var(--bg-soft); }
+  .nav__link.is-active { color: var(--steel); font-weight: 600; }
+
+  .langs { display: flex; align-items: center; gap: .15rem; padding-left: .25rem; border-left: 1px solid var(--line); }
+  .langs__link {
+    font-size: .8rem; font-weight: 600; letter-spacing: .03em; color: var(--muted);
+    padding: .35rem .45rem; border-radius: var(--radius);
+    transition: color .18s var(--ease), background .18s var(--ease);
+  }
+  .langs__link:hover { color: var(--ink); }
+  .langs__link.is-active { color: var(--copper-600); background: var(--bg-soft); }
+
+  .hdr__cta { padding: .6rem 1.05rem; font-size: .88rem; }
+
+  .hdr__burger { display: none; flex-direction: column; gap: 5px; background: none; border: 0; padding: 8px; }
+  .hdr__burger span { width: 24px; height: 2px; background: var(--ink); transition: transform .25s var(--ease), opacity .2s; }
+  .hdr__burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hdr__burger[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+  .hdr__burger[aria-expanded='true'] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-nav { border-bottom: 1px solid var(--line); background: #fff; padding-block: .5rem; }
+  .mobile-nav__link { display: block; padding: .85rem 1.5rem; font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--line); }
+  .mobile-nav__link.is-active { color: var(--steel); }
+  .mobile-langs { display: flex; gap: .4rem; padding: 1rem 1.5rem .25rem; }
+  .mobile-langs .langs__link { border: 1px solid var(--line); }
+
+  @media (max-width: 1100px) {
+    .nav, .hdr__cta, .hdr > .container > .langs { display: none; }
+    .hdr__burger { display: flex; }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('site-header');
+  const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobile-nav');
+  burger?.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!open));
+    if (menu) menu.hidden = open;
+  });
+
+  // Remember explicit language choice so auto-detect won't override it.
+  document.querySelectorAll('.langs__link').forEach((el) => {
+    el.addEventListener('click', () => {
+      const hl = el.getAttribute('hreflang');
+      if (hl) try { localStorage.setItem('lang', hl); } catch {}
+    });
+  });
+</script>

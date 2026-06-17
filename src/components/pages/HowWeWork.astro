@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBand from '../CtaBand.astro';
+import { getLang, t } from '../../i18n/utils';
+
+const lang = getLang(Astro.currentLocale);
+const tr = t(lang);
+---
+
+<Base title={tr.nav.howwework} description={tr.howwework.heroLead}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{tr.howwework.heroEyebrow}</p>
+      <h1>{tr.howwework.heroH1}</h1>
+      <p class="lead mt-2">{tr.howwework.heroLead}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid cols-3">
+        {tr.howwework.pillars.map((p) => (
+          <div class="pillar reveal">
+            <span class="pillar__n">{p.n}</span>
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">{tr.howwework.marketsEyebrow}</p>
+        <h2>{tr.howwework.marketsH2}</h2>
+        <p class="lead mt-2">{tr.howwework.marketsLead}</p>
+      </div>
+      <div class="channels reveal">
+        {tr.howwework.channels.map((row) => (
+          <div class="channel">
+            <span class="channel__p">{row.p}</span>
+            <span class="channel__c">{row.c}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .page-hero { background: var(--ink); color: #fff; padding-block: clamp(3.5rem, 8vw, 6rem); }
+  .page-hero h1 { color: #fff; }
+  .page-hero .lead { color: #aebccb; max-width: 62ch; }
+  .page-hero .eyebrow { color: var(--steel-300); }
+  .page-hero .eyebrow::before { background: var(--copper-300); }
+
+  .pillar { padding: 1.9rem 0; border-top: 2px solid var(--ink); }
+  .pillar__n { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--copper-600); letter-spacing: .08em; }
+  .pillar h3 { margin: .7rem 0; }
+  .pillar p { color: var(--muted); font-size: .96rem; }
+
+  .channels { display: flex; flex-direction: column; }
+  .channel {
+    display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem; align-items: baseline;
+    padding: 1.4rem 0; border-bottom: 1px solid var(--line);
+  }
+  .channel:first-child { border-top: 1px solid var(--line); }
+  .channel__p { font-weight: 600; font-size: 1.05rem; }
+  .channel__c { color: var(--muted); font-size: .96rem; }
+  @media (max-width: 680px) { .channel { grid-template-columns: 1fr; gap: .4rem; } }
+</style>

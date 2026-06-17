@@ -1,0 +1,40 @@
+---
+import type { Product } from '../data/products';
+import { getLang } from '../i18n/utils';
+interface Props { product: Product; }
+const { product } = Astro.props;
+const lang = getLang(Astro.currentLocale);
+---
+
+<article class="pcard card reveal">
+  <div class="pcard__media">
+    <img src={product.image} alt={product.name[lang]} loading="lazy" width="600" height="420" />
+  </div>
+  <div class="pcard__body">
+    <h3>{product.name[lang]}</h3>
+    <p>{product.summary[lang]}</p>
+    {product.specs[lang] && (
+      <ul class="pcard__specs">
+        {product.specs[lang].map((s) => <li>{s}</li>)}
+      </ul>
+    )}
+  </div>
+</article>
+
+<style>
+  .pcard { display: flex; flex-direction: column; height: 100%; }
+  .pcard__media { aspect-ratio: 16 / 11; overflow: hidden; background: var(--bg-soft-2); }
+  .pcard__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+  .pcard:hover .pcard__media img { transform: scale(1.05); }
+  .pcard__body { padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
+  .pcard__body h3 { margin-bottom: .55rem; }
+  .pcard__body p { font-size: .94rem; color: var(--muted); line-height: 1.55; }
+  .pcard__specs { margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: .45rem; }
+  .pcard__specs li {
+    font-size: .85rem; color: var(--ink-2); padding-left: 1.2rem; position: relative;
+  }
+  .pcard__specs li::before {
+    content: ""; position: absolute; left: 0; top: .55em;
+    width: 6px; height: 6px; background: var(--copper); border-radius: 1px;
+  }
+</style>

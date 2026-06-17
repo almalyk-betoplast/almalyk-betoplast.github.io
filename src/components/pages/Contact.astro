@@ -1,0 +1,183 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site } from '../../data/site';
+import { products } from '../../data/products';
+import { getLang, t } from '../../i18n/utils';
+
+const lang = getLang(Astro.currentLocale);
+const tr = t(lang);
+const c = tr.contact;
+const action = `https://formspree.io/f/${site.formspreeId}`;
+---
+
+<Base title={tr.nav.contact} description={c.heroLead}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{c.heroEyebrow}</p>
+      <h1>{c.heroH1}</h1>
+      <p class="lead mt-2">{c.heroLead}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact">
+      <aside class="contact__info">
+        <div class="info-block">
+          <h3>{c.directTitle}</h3>
+          <p class="contact-lines">
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </p>
+        </div>
+        <div class="info-block">
+          <h3>{c.officeTitle}</h3>
+          <address>
+            {tr.address.line1}<br />
+            {tr.address.line2}<br />
+            {tr.address.country}
+          </address>
+        </div>
+        <div class="info-block">
+          <h3>{c.legalTitle}</h3>
+          <p>{tr.legalEntity}<br />{c.tinLabel} {site.tin}</p>
+        </div>
+        <div class="info-block">
+          <h3>{c.includeTitle}</h3>
+          <ul class="info-list">
+            {c.includeList.map((it) => <li>{it}</li>)}
+          </ul>
+        </div>
+      </aside>
+
+      <form
+        class="contact__form card"
+        id="contact-form"
+        action={action}
+        method="POST"
+        data-st-sending={c.statusSending}
+        data-st-ok={c.statusOk}
+        data-st-err={c.statusErr}
+        data-st-net={c.statusNet}
+        data-st-nc={c.statusNotConfigured}
+      >
+        <div class="field-row">
+          <label class="field">
+            <span>{c.fName} *</span>
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label class="field">
+            <span>{c.fCompany}</span>
+            <input type="text" name="company" autocomplete="organization" />
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field">
+            <span>{c.fEmail} *</span>
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label class="field">
+            <span>{c.fCountry}</span>
+            <input type="text" name="country" autocomplete="country-name" />
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field">
+            <span>{c.fInquiry}</span>
+            <select name="inquiry_type">
+              {c.inquiryTypes.map((o) => <option>{o}</option>)}
+            </select>
+          </label>
+          <label class="field">
+            <span>{c.fProduct}</span>
+            <select name="product">
+              <option value="">{c.selectPlaceholder}</option>
+              {products.map((p) => <option>{p.name[lang]}</option>)}
+            </select>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>{c.fMessage} *</span>
+          <textarea name="message" rows="5" required placeholder={c.msgPlaceholder}></textarea>
+        </label>
+
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <button type="submit" class="btn btn--primary form__submit">{c.submit} <span class="arrow">→</span></button>
+        <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero { background: var(--ink); color: #fff; padding-block: clamp(3.5rem, 8vw, 6rem); }
+  .page-hero h1 { color: #fff; }
+  .page-hero .lead { color: #aebccb; max-width: 52ch; }
+  .page-hero .eyebrow { color: var(--steel-300); }
+  .page-hero .eyebrow::before { background: var(--copper-300); }
+
+  .contact { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+  @media (max-width: 900px) { .contact { grid-template-columns: 1fr; } }
+
+  .info-block { padding-bottom: 1.6rem; margin-bottom: 1.6rem; border-bottom: 1px solid var(--line); }
+  .info-block:last-child { border-bottom: 0; }
+  .info-block h3 { font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--steel-500); margin-bottom: .8rem; }
+  .info-block address { font-style: normal; line-height: 1.7; color: var(--ink); }
+  .info-block p { color: var(--ink); }
+  .contact-lines { display: flex; flex-direction: column; gap: .4rem; }
+  .contact-lines a { color: var(--ink); font-weight: 500; transition: color .18s var(--ease); width: fit-content; }
+  .contact-lines a:hover { color: var(--copper-600); }
+  .info-list { display: flex; flex-direction: column; gap: .55rem; }
+  .info-list li { font-size: .92rem; color: var(--muted); padding-left: 1.2rem; position: relative; }
+  .info-list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; background: var(--copper); border-radius: 1px; }
+
+  .contact__form { padding: clamp(1.6rem, 3vw, 2.4rem); display: flex; flex-direction: column; gap: 1.1rem; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  @media (max-width: 560px) { .field-row { grid-template-columns: 1fr; } }
+  .field { display: flex; flex-direction: column; gap: .4rem; }
+  .field span { font-size: .85rem; font-weight: 600; color: var(--ink-2); }
+  .field input, .field select, .field textarea {
+    font: inherit; font-size: .95rem; color: var(--ink);
+    padding: .7rem .85rem; border: 1px solid var(--line-2); border-radius: var(--radius);
+    background: #fff; transition: border-color .18s var(--ease), box-shadow .18s var(--ease);
+  }
+  .field textarea { resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--steel-500); box-shadow: 0 0 0 3px rgba(47,94,138,.12);
+  }
+  .form__submit { align-self: flex-start; margin-top: .4rem; }
+  .form__status { font-size: .92rem; }
+  .form__status.ok { color: #1f7a4d; }
+  .form__status.err { color: #b3261e; }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+  const d = (k: string) => form?.dataset[k] ?? '';
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form.action.includes('/f/xxxxxxxx')) {
+      if (status) { status.textContent = d('stNc'); status.className = 'form__status err'; }
+      return;
+    }
+    if (status) { status.textContent = d('stSending'); status.className = 'form__status'; }
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        form.reset();
+        if (status) { status.textContent = d('stOk'); status.className = 'form__status ok'; }
+      } else {
+        if (status) { status.textContent = d('stErr'); status.className = 'form__status err'; }
+      }
+    } catch {
+      if (status) { status.textContent = d('stNet'); status.className = 'form__status err'; }
+    }
+  });
+</script>

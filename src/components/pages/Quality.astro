@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaBand from '../CtaBand.astro';
+import { getLang, t } from '../../i18n/utils';
+
+const lang = getLang(Astro.currentLocale);
+const tr = t(lang);
+---
+
+<Base title={tr.nav.quality} description={tr.quality.heroLead}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">{tr.quality.heroEyebrow}</p>
+      <h1>{tr.quality.heroH1}</h1>
+      <p class="lead mt-2">{tr.quality.heroLead}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid cols-3">
+        {tr.quality.features.map((f) => (
+          <div class="qfeature reveal">
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">{tr.quality.tableEyebrow}</p>
+        <h2>{tr.quality.tableH2}</h2>
+      </div>
+      <div class="qtable reveal">
+        <div class="qtable__head">
+          <span>{tr.quality.thElement}</span><span>{tr.quality.thApproach}</span>
+        </div>
+        {tr.quality.controls.map((c) => (
+          <div class="qtable__row">
+            <span class="qtable__el">{c.el}</span>
+            <span>{c.approach}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading={tr.quality.ctaHeading} text={tr.quality.ctaText} />
+</Base>
+
+<style>
+  .page-hero { background: var(--ink); color: #fff; padding-block: clamp(3.5rem, 8vw, 6rem); }
+  .page-hero h1 { color: #fff; }
+  .page-hero .lead { color: #aebccb; max-width: 62ch; }
+  .page-hero .eyebrow { color: var(--steel-300); }
+  .page-hero .eyebrow::before { background: var(--copper-300); }
+
+  .qfeature { padding: 1.8rem 0; border-top: 2px solid var(--ink); }
+  .qfeature h3 { margin-bottom: .7rem; }
+  .qfeature p { color: var(--muted); font-size: .95rem; }
+
+  .qtable { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+  .qtable__head, .qtable__row { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; padding: 1.1rem 1.6rem; }
+  .qtable__head { background: var(--ink); color: #fff; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; }
+  .qtable__row { border-top: 1px solid var(--line); font-size: .95rem; color: var(--muted); }
+  .qtable__el { font-weight: 600; color: var(--ink); }
+  @media (max-width: 680px) {
+    .qtable__head { display: none; }
+    .qtable__row { grid-template-columns: 1fr; gap: .4rem; }
+  }
+</style>
