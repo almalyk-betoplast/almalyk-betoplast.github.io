@@ -30,16 +30,28 @@ const contactHref = localizePath('/contact', lang);
       ))}
     </nav>
 
-    <div class="langs" role="group" aria-label="Language">
-      {locales.map((loc) => (
-        <a
-          href={localizePath(currentPath, loc)}
-          class:list={['langs__link', { 'is-active': loc === lang }]}
-          hreflang={loc}
-          aria-current={loc === lang ? 'true' : undefined}
-        >{languages[loc].short}</a>
-      ))}
-    </div>
+    <details class="lang-dd" id="lang-dd">
+      <summary class="lang-dd__btn" aria-label="Language" title="Language">
+        <span>{languages[lang].short}</span>
+        <svg class="lang-dd__chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4" /></svg>
+      </summary>
+      <ul class="lang-dd__menu" role="menu">
+        {locales.map((loc) => (
+          <li role="none">
+            <a
+              role="menuitem"
+              href={localizePath(currentPath, loc)}
+              hreflang={loc}
+              class:list={['lang-dd__opt', { 'is-active': loc === lang }]}
+              aria-current={loc === lang ? 'true' : undefined}
+            >
+              <span class="lang-dd__code">{languages[loc].short}</span>
+              <span class="lang-dd__label">{languages[loc].label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
 
     <a href={contactHref} class="btn btn--primary hdr__cta">{tr.common.getInTouch}</a>
 
@@ -56,7 +68,7 @@ const contactHref = localizePath('/contact', lang);
     ))}
     <div class="mobile-langs">
       {locales.map((loc) => (
-        <a href={localizePath(currentPath, loc)} class:list={['langs__link', { 'is-active': loc === lang }]} hreflang={loc}>
+        <a href={localizePath(currentPath, loc)} class:list={['mlang', { 'is-active': loc === lang }]} hreflang={loc}>
           {languages[loc].short}
         </a>
       ))}
@@ -74,7 +86,7 @@ const contactHref = localizePath('/contact', lang);
     transition: box-shadow .25s var(--ease);
   }
   .hdr.scrolled { box-shadow: var(--shadow-sm); }
-  .hdr__inner { display: flex; align-items: center; gap: 1.25rem; height: 74px; }
+  .hdr__inner { display: flex; align-items: center; gap: 1.1rem; height: 74px; }
 
   .brand { display: flex; align-items: center; gap: .7rem; margin-right: auto; }
   .brand__mark {
@@ -83,13 +95,13 @@ const contactHref = localizePath('/contact', lang);
     background: var(--steel); color: #fff;
     font-weight: 800; font-size: 1.05rem; letter-spacing: -.03em;
   }
-  .brand__text { font-size: 1.02rem; letter-spacing: -.01em; color: var(--ink); display: flex; gap: .35rem; }
+  .brand__text { font-size: 1.02rem; letter-spacing: -.01em; color: var(--ink); display: flex; gap: .35rem; white-space: nowrap; }
   .brand__text strong { font-weight: 700; }
   .brand__sep { color: var(--steel-300); }
 
-  .nav { display: flex; gap: .2rem; }
+  .nav { display: flex; gap: .15rem; }
   .nav__link {
-    padding: .5rem .7rem; border-radius: var(--radius);
+    padding: .5rem .65rem; border-radius: var(--radius);
     font-size: .9rem; font-weight: 500; color: var(--muted);
     transition: color .18s var(--ease), background .18s var(--ease);
     white-space: nowrap;
@@ -97,16 +109,38 @@ const contactHref = localizePath('/contact', lang);
   .nav__link:hover { color: var(--ink); background: var(--bg-soft); }
   .nav__link.is-active { color: var(--steel); font-weight: 600; }
 
-  .langs { display: flex; align-items: center; gap: .15rem; padding-left: .25rem; border-left: 1px solid var(--line); }
-  .langs__link {
-    font-size: .8rem; font-weight: 600; letter-spacing: .03em; color: var(--muted);
-    padding: .35rem .45rem; border-radius: var(--radius);
-    transition: color .18s var(--ease), background .18s var(--ease);
+  /* Language dropdown */
+  .lang-dd { position: relative; flex: none; }
+  .lang-dd__btn {
+    list-style: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: .35rem;
+    padding: .45rem .55rem; border-radius: var(--radius);
+    border: 1px solid var(--line-2); background: transparent;
+    font-size: .82rem; font-weight: 600; letter-spacing: .03em; color: var(--ink-2);
+    transition: border-color .18s var(--ease), background .18s var(--ease);
   }
-  .langs__link:hover { color: var(--ink); }
-  .langs__link.is-active { color: var(--copper-600); background: var(--bg-soft); }
+  .lang-dd__btn::-webkit-details-marker { display: none; }
+  .lang-dd__btn:hover { border-color: var(--steel-300); background: var(--bg-soft); }
+  .lang-dd__chev { width: 12px; height: 12px; color: var(--muted); transition: transform .2s var(--ease); }
+  .lang-dd[open] .lang-dd__chev { transform: rotate(180deg); }
+  .lang-dd[open] .lang-dd__btn { border-color: var(--steel-500); background: var(--bg-soft); }
+  .lang-dd__menu {
+    position: absolute; right: 0; top: calc(100% + 8px); z-index: 60;
+    min-width: 158px; margin: 0; padding: .35rem; list-style: none;
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+  }
+  .lang-dd__opt {
+    display: flex; align-items: center; gap: .65rem;
+    padding: .5rem .6rem; border-radius: var(--radius);
+    font-size: .92rem; color: var(--ink); transition: background .15s var(--ease);
+  }
+  .lang-dd__opt:hover { background: var(--bg-soft); }
+  .lang-dd__opt.is-active { color: var(--copper-600); font-weight: 600; }
+  .lang-dd__code { font-size: .72rem; font-weight: 700; letter-spacing: .04em; color: var(--muted); width: 2ch; }
+  .lang-dd__opt.is-active .lang-dd__code { color: var(--copper-600); }
 
-  .hdr__cta { padding: .6rem 1.05rem; font-size: .88rem; }
+  .hdr__cta { padding: .6rem 1.05rem; font-size: .88rem; white-space: nowrap; flex: none; }
 
   .hdr__burger { display: none; flex-direction: column; gap: 5px; background: none; border: 0; padding: 8px; }
   .hdr__burger span { width: 24px; height: 2px; background: var(--ink); transition: transform .25s var(--ease), opacity .2s; }
@@ -118,10 +152,14 @@ const contactHref = localizePath('/contact', lang);
   .mobile-nav__link { display: block; padding: .85rem 1.5rem; font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--line); }
   .mobile-nav__link.is-active { color: var(--steel); }
   .mobile-langs { display: flex; gap: .4rem; padding: 1rem 1.5rem .25rem; }
-  .mobile-langs .langs__link { border: 1px solid var(--line); }
+  .mlang {
+    font-size: .8rem; font-weight: 600; letter-spacing: .03em; color: var(--muted);
+    padding: .4rem .7rem; border-radius: var(--radius); border: 1px solid var(--line);
+  }
+  .mlang.is-active { color: var(--copper-600); border-color: var(--copper-300); }
 
   @media (max-width: 1100px) {
-    .nav, .hdr__cta, .hdr > .container > .langs { display: none; }
+    .nav, .hdr__cta, .lang-dd { display: none; }
     .hdr__burger { display: flex; }
   }
 </style>
@@ -140,11 +178,14 @@ const contactHref = localizePath('/contact', lang);
     if (menu) menu.hidden = open;
   });
 
-  // Remember explicit language choice so auto-detect won't override it.
-  document.querySelectorAll('.langs__link').forEach((el) => {
-    el.addEventListener('click', () => {
-      const hl = el.getAttribute('hreflang');
-      if (hl) try { localStorage.setItem('lang', hl); } catch {}
+  // Language dropdown: close on outside click or Escape.
+  const dd = document.getElementById('lang-dd') as HTMLDetailsElement | null;
+  if (dd) {
+    document.addEventListener('click', (e) => {
+      if (dd.open && !dd.contains(e.target as Node)) dd.open = false;
     });
-  });
+    dd.addEventListener('keydown', (e) => {
+      if ((e as KeyboardEvent).key === 'Escape') dd.open = false;
+    });
+  }
 </script>
