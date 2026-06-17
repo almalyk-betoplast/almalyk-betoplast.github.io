@@ -27,29 +27,6 @@ const canonical = new URL(localizePath(base, lang), Astro.site).href;
   <head>
     <script is:inline>
       document.documentElement.classList.add('js');
-      // Auto-detect language on first visit (respects an explicit choice).
-      (function () {
-        try {
-          if (sessionStorage.getItem('langRedirected')) return;
-          sessionStorage.setItem('langRedirected', '1');
-          var path = location.pathname;
-          // Only act on the default (unprefixed) pages; respect explicit /ru and /uz URLs.
-          if (/^\/(ru|uz)(?=\/|$)/.test(path)) return;
-          var target = localStorage.getItem('lang');
-          if (!target) {
-            var langs = navigator.languages || [navigator.language || 'en'];
-            for (var i = 0; i < langs.length; i++) {
-              var l = (langs[i] || '').toLowerCase();
-              if (l.indexOf('ru') === 0) { target = 'ru'; break; }
-              if (l.indexOf('uz') === 0) { target = 'uz'; break; }
-            }
-          }
-          if (target === 'ru' || target === 'uz') {
-            var dest = '/' + target + (path === '/' ? '' : path);
-            location.replace(dest + location.search + location.hash);
-          }
-        } catch (e) {}
-      })();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
