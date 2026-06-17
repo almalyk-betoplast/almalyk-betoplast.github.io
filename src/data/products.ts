@@ -20,7 +20,7 @@ export const groups = {
     blurb: {
       en: 'Oxygen-free copper rod and high-volume conversion products drawn from AMMC cathode copper.',
       ru: 'Бескислородная катанка и массовая продукция передела из катодной меди АГМК.',
-      uz: 'AGMK katod misidan olingan kislorodsiz katanka va yuqori hajmli qayta ishlash mahsulotlari.',
+      uz: 'OKMK katod misidan olingan kislorodsiz katanka va yuqori hajmli qayta ishlash mahsulotlari.',
     },
   },
   electronics: {
@@ -46,7 +46,7 @@ export const products: Product[] = [
     summary: {
       en: 'Oxygen-free copper rod from AMMC cathodes — the base liquid product and feedstock for downstream conversion. Ø8 mm is the primary commercial diameter.',
       ru: 'Бескислородная катанка из катодов АГМК — базовый ликвидный продукт и сырьё для дальнейшего передела. Основной товарный диаметр — Ø8 мм.',
-      uz: 'AGMK katodlaridan kislorodsiz mis katanka — asosiy likvid mahsulot va keyingi qayta ishlash uchun xomashyo. Asosiy tijorat diametri — Ø8 mm.',
+      uz: 'OKMK katodlaridan kislorodsiz mis katanka — asosiy likvid mahsulot va keyingi qayta ishlash uchun xomashyo. Asosiy tijorat diametri — Ø8 mm.',
     },
     specs: {
       en: ['Ø8, Ø12.5, Ø16, Ø20, Ø25 mm', 'Coils with CoA', 'Batch-level traceability'],

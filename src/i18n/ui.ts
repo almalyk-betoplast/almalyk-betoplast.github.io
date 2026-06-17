@@ -396,7 +396,7 @@ export const ui = {
   uz: {
     meta: {
       siteDescription:
-        'Almalyk MMC – Betoplast — mis qayta ishlash ishlab chiqaruvchisi: AGMK katod misini kislorodsiz katanka, oddiy qayta ishlash mahsulotlari, ED mis folga va elektron darajadagi materiallarga aylantiradi.',
+        'Almalyk MMC – Betoplast — mis qayta ishlash ishlab chiqaruvchisi: OKMK katod misini kislorodsiz katanka, oddiy qayta ishlash mahsulotlari, ED mis folga va elektron darajadagi materiallarga aylantiradi.',
       tagline: 'Kislorodsiz mis va elektron darajadagi materiallar',
     },
     nav: {
@@ -416,7 +416,7 @@ export const ui = {
       skipToContent: "Asosiy qismga o‘tish",
     },
     footer: {
-      desc: 'Almalyk MMC – Betoplast — mis qayta ishlash ishlab chiqaruvchisi: AGMK katod misini kislorodsiz katanka, oddiy qayta ishlash mahsulotlari, ED mis folga va elektron darajadagi materiallarga aylantiradi.',
+      desc: 'Almalyk MMC – Betoplast — mis qayta ishlash ishlab chiqaruvchisi: OKMK katod misini kislorodsiz katanka, oddiy qayta ishlash mahsulotlari, ED mis folga va elektron darajadagi materiallarga aylantiradi.',
       navigate: 'Navigatsiya',
       office: "Ro‘yxatdan o‘tgan manzil",
       rights: 'Barcha huquqlar himoyalangan.',
@@ -437,7 +437,7 @@ export const ui = {
       heroEyebrow: 'Mis qayta ishlash · O‘zbekiston',
       heroH1: 'Kislorodsiz mis,<br />muhandislik qayta ishlovi.',
       heroLead:
-        'Almalyk MMC – Betoplast AGMK katod misini kislorodsiz katanka, oddiy qayta ishlash mahsulotlari, ED mis folga va elektron darajadagi materiallarga aylantiradi — metallning nazorat qilinadigan kelib chiqishi va katoddan g‘altakgacha hujjatlashtirilgan sifat bilan.',
+        'Almalyk MMC – Betoplast OKMK katod misini kislorodsiz katanka, oddiy qayta ishlash mahsulotlari, ED mis folga va elektron darajadagi materiallarga aylantiradi — metallning nazorat qilinadigan kelib chiqishi va katoddan g‘altakgacha hujjatlashtirilgan sifat bilan.',
       stats: [
         { v: 'OF / OFE', l: 'Kislorodsiz mis markalari' },
         { v: '1–15 µm', l: 'ED folga diapazoni' },
@@ -449,7 +449,7 @@ export const ui = {
       introLead:
         'Modelimiz ikki maydonda ishlaydi: asosiy maydon — katanka va oddiy qayta ishlash, toza maydon — ED folga, wire bonding va elektron darajadagi mahsulotlar; ularni tozalik va kuzatuvchanlikni saqlovchi nazorat qilinadigan Clean Transfer bog‘laydi.',
       capabilities: [
-        { title: 'Kislorodsiz katanka', text: 'AGMK katod misidan quyilgan OF / OFE katanka — likvid asosiy mahsulot va keyingi barcha qayta ishlash uchun xomashyo.' },
+        { title: 'Kislorodsiz katanka', text: 'OKMK katod misidan quyilgan OF / OFE katanka — likvid asosiy mahsulot va keyingi barcha qayta ishlash uchun xomashyo.' },
         { title: 'Oddiy qayta ishlash mahsulotlari', text: 'Shinalar, lenta, to‘rtburchak va dumaloq emal sim, litsendrat, to‘qima va shuntlar — sanoat xaridorlari uchun.' },
         { title: 'ED mis folga', text: 'Batareya va elektronika zanjirlari uchun 1–15 µm elektrocho‘ktirilgan folga, jumladan HVLP / VSP markalari.' },
         { title: 'Elektron darajadagi materiallar', text: 'Ultraingichka bonding sim va qoplamali, CoA hamda kengaytirilgan sifat nazoratiga ega toza qayta ishlash mahsulotlari.' },
@@ -461,11 +461,11 @@ export const ui = {
       heroEyebrow: 'Kompaniya haqida',
       heroH1: 'Mis qayta ishlash bo‘yicha qo‘shma korxona',
       heroLead:
-        'Almalyk MMC – Betoplast AGMK katod misini yuqori qo‘shilgan qiymatli mahsulotlarga aylantiradi, likvid katanka oqimini qayta ishlash va elektron darajadagi ishlab chiqarish bilan birlashtiradi.',
+        'Almalyk MMC – Betoplast OKMK katod misini yuqori qo‘shilgan qiymatli mahsulotlarga aylantiradi, likvid katanka oqimini qayta ishlash va elektron darajadagi ishlab chiqarish bilan birlashtiradi.',
       whoEyebrow: 'Biz kimmiz',
       whoH2: 'Katoddan g‘altakgacha integratsiya',
       whoP1:
-        'Qo‘shma korxonamiz AGMK / AMMC katod misini yuqori qo‘shilgan qiymatli mahsulotlarga qayta ishlovchi vertikal integratsiyalashgan zanjir quradi. Tijorat mantig‘i likvid OF / OFE katanka oqimini oddiy qayta ishlash mahsulotlari, ED folga, wire bonding va maxsus elektron darajadagi mahsulotlar bilan birlashtiradi.',
+        'Qo‘shma korxonamiz OKMK / AMMC katod misini yuqori qo‘shilgan qiymatli mahsulotlarga qayta ishlovchi vertikal integratsiyalashgan zanjir quradi. Tijorat mantig‘i likvid OF / OFE katanka oqimini oddiy qayta ishlash mahsulotlari, ED folga, wire bonding va maxsus elektron darajadagi mahsulotlar bilan birlashtiradi.',
       whoP2:
         'Bunday tuzilma bitta bozorga bog‘liqlikni kamaytiradi, sotuv moslashuvchanligini oshiradi va xalqaro treyderlar, sanoat xaridorlari hamda uzoq muddatli offteyk hamkorlar bilan ishlash uchun mustahkam asos yaratadi.',
       archEyebrow: 'Ishlab chiqarish arxitekturasi',
@@ -479,7 +479,7 @@ export const ui = {
       rawEyebrow: 'Xomashyo bazasi',
       rawH2: 'Metallning nazorat qilinadigan kelib chiqishi',
       rawText:
-        'Xomashyo — AGMK / AMMC katod misi, partiyalar haqiqiy sifat sertifikatlari asosida tanlanadi. Nazorat qilinadigan kelib chiqish past kislorodli katankani va keyingi elektron darajadagi mahsulotlar uchun zarur tozalikni ta’minlaydi.',
+        'Xomashyo — OKMK / AMMC katod misi, partiyalar haqiqiy sifat sertifikatlari asosida tanlanadi. Nazorat qilinadigan kelib chiqish past kislorodli katankani va keyingi elektron darajadagi mahsulotlar uchun zarur tozalikni ta’minlaydi.',
       factLegal: 'Yuridik shaxs',
       factTin: 'STIR',
       factLocation: 'Manzil',
@@ -488,7 +488,7 @@ export const ui = {
       heroEyebrow: 'Mahsulotlar',
       heroH1: 'Mis mahsulotlari, boshidan oxirigacha',
       heroLead:
-        'Yagona manba: likvid mis katanka, yuqori hajmli qayta ishlash mahsulotlari va yuzaga sezgir elektron darajadagi materiallar — barchasi nazorat qilinadigan AGMK katod misidan.',
+        'Yagona manba: likvid mis katanka, yuqori hajmli qayta ishlash mahsulotlari va yuzaga sezgir elektron darajadagi materiallar — barchasi nazorat qilinadigan OKMK katod misidan.',
       ctaHeading: 'Aniq marka yoki format kerakmi?',
       ctaText: 'Spetsifikatsiyangizni yuboring — diametr, qalinlik, emal klassi yoki folga markasi — biz mavjudligini tasdiqlaymiz.',
     },
@@ -507,7 +507,7 @@ export const ui = {
       thElement: 'Nazorat elementi',
       thApproach: 'Loyiha yondashuvi',
       controls: [
-        { el: 'Xomashyo', approach: 'AGMK / AMMC katod misi; partiyalar haqiqiy sifat sertifikatlari asosida tanlanadi.' },
+        { el: 'Xomashyo', approach: 'OKMK / AMMC katod misi; partiyalar haqiqiy sifat sertifikatlari asosida tanlanadi.' },
         { el: 'Katanka', approach: 'Kislorod, o‘tkazuvchanlik, kimyo, yuza, geometriya va qadoqlash nazorati.' },
         { el: 'Clean Transfer', approach: 'Toza maydonga kuzatuvchanlikni saqlagan holda nazorat qilinadigan qadoqda uzatish.' },
         { el: 'ED / bonding xomashyosi', approach: 'Yuvish, quritish, sim / nuggets tayyorlash; moylar va begona materiallar bilan nazoratsiz aloqaning taqiqlanishi.' },
@@ -522,7 +522,7 @@ export const ui = {
       heroLead:
         'Biz uzoq muddatli offteyk, sanoat iste’molchilariga to‘g‘ridan-to‘g‘ri sotuv va yetakchi xalqaro treyderlar orqali taqsimotni birlashtiramiz — nazorat qilinadigan kelib chiqish va hujjatlashtirilgan sifat asosida.',
       pillars: [
-        { n: '01', title: 'Nazorat qilinadigan kelib chiqish', text: 'Har bir mahsulot hujjatlashtirilgan sifatli AGMK katod misidan boshlanadi — birinchi qadamdan ma’lum, barqaror metall manbai.' },
+        { n: '01', title: 'Nazorat qilinadigan kelib chiqish', text: 'Har bir mahsulot hujjatlashtirilgan sifatli OKMK katod misidan boshlanadi — birinchi qadamdan ma’lum, barqaror metall manbai.' },
         { n: '02', title: 'Clean Transfer', text: 'Yarim tayyor material toza maydonga nazorat qilinadigan qadoqda, barcha bosqichlarda tozalik va kuzatuvchanlikni saqlagan holda uzatiladi.' },
         { n: '03', title: 'Hujjatlashtirilgan yetkazib berish', text: 'Partiyalar tahlil sertifikati va kuzatuvchanlik bilan, sifat nazorat nuqtalari va nomuvofiqlik bayonnomalari ko‘magida jo‘natiladi.' },
       ],
@@ -543,7 +543,7 @@ export const ui = {
       heroLead:
         'Nazorat qilinadigan kelib chiqish, samarali qayta ishlash va tozaroq, ko‘proq elektrlashtirilgan sanoatga o‘tishga xizmat qiluvchi mahsulotlar.',
       commitments: [
-        { title: 'Mas’uliyatli xomashyo manbai', text: 'Xomashyo — hujjatlashtirilgan kelib chiqishga ega AGMK katod misi: aralash yoki tasdiqlanmagan manbalar emas, balki shaffof, kuzatiladigan metall yetkazib berish.' },
+        { title: 'Mas’uliyatli xomashyo manbai', text: 'Xomashyo — hujjatlashtirilgan kelib chiqishga ega OKMK katod misi: aralash yoki tasdiqlanmagan manbalar emas, balki shaffof, kuzatiladigan metall yetkazib berish.' },
         { title: 'Integratsiyalashgan, kuzatiladigan oqim', text: 'Vertikal integratsiyalashgan zanjir misni katoddan tayyor mahsulotgacha yagona nazorat qilinadigan oqimda saqlaydi, maydonlar o‘rtasidagi har bir Clean Transferda tozalik va kuzatuvchanlik bilan.' },
         { title: 'Elektrlashtirish uchun mis', text: 'Mahsulotlarimiz elektrlashtirish iqtisodiyotini ta’minlaydi — qayta tiklanuvchi energiya va samarali quvvat tizimlari asosidagi batareyalar, magnet wire, shinalar va elektronika.' },
         { title: 'Hujjatlashtirilgan standartlar', text: 'Biz ikkala maydonda ham aniq sifat va hujjatlashtirish standartlari bo‘yicha ishlaymiz — nazorat qilinadigan jarayonlar, sifat nazorat nuqtalari, tahlil sertifikatlari va partiya kuzatuvchanligi.' },
