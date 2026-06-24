@@ -1,0 +1,82 @@
+{
+  "hero": {
+    "source": "client-supplied",
+    "note": "copper rolling mill \u2014 hero background"
+  },
+  "about": {
+    "q": "metal factory workers production line",
+    "id": "ox5Dv5QD3-8",
+    "premium": false,
+    "alt": "A man welding a piece of metal in a factory",
+    "by": "Cemrecan Yurtman",
+    "link": "https://unsplash.com/photos/a-man-welding-a-piece-of-metal-in-a-factory-ox5Dv5QD3-8"
+  },
+  "quality": {
+    "q": "laboratory metal inspection microscope",
+    "id": "JdtUKqGdqw8",
+    "premium": false,
+    "alt": "white and black microscope on white surface",
+    "by": "Pawel Czerwinski",
+    "link": "https://unsplash.com/photos/white-and-black-microscope-on-white-surface-JdtUKqGdqw8"
+  },
+  "howwework": {
+    "q": "cargo container ship logistics port",
+    "id": "NndKt2kF1L4",
+    "premium": false,
+    "alt": "red and blue cargo ship on body of water during daytime",
+    "by": "william william",
+    "link": "https://unsplash.com/photos/red-and-blue-cargo-ship-on-body-of-water-during-daytime-NndKt2kF1L4"
+  },
+  "sustainability": {
+    "q": "solar panel wind turbine renewable energy",
+    "id": "iKjAj_oq-IE",
+    "premium": false,
+    "alt": "white wind turbine on top of a building",
+    "by": "Nazrin Babashova",
+    "link": "https://unsplash.com/photos/white-wind-turbine-on-top-of-a-building-iKjAj_oq-IE"
+  },
+  "cta": {
+    "q": "molten metal foundry pouring",
+    "id": "l0QB40LUoXA",
+    "premium": false,
+    "alt": "a large piece of metal being poured into a container",
+    "by": "Morteza Mohammadi",
+    "link": "https://unsplash.com/photos/a-large-piece-of-metal-being-poured-into-a-container-l0QB40LUoXA"
+  },
+  "products/rod": {
+    "source": "client-supplied",
+    "note": "official product photo"
+  },
+  "products/busbar": {
+    "source": "client-supplied",
+    "note": "official product photo"
+  },
+  "products/strip": {
+    "source": "client-supplied",
+    "note": "official product photo"
+  },
+  "products/rect-wire": {
+    "source": "client-supplied",
+    "note": "official product photo"
+  },
+  "products/enamelled": {
+    "source": "client-supplied",
+    "note": "official product photo"
+  },
+  "products/litz": {
+    "source": "client-supplied",
+    "note": "official product photo"
+  },
+  "products/ed-foil": {
+    "source": "client-supplied",
+    "note": "official product photo"
+  },
+  "products/bonding": {
+    "source": "client-supplied",
+    "note": "official product photo"
+  },
+  "products/egrade": {
+    "source": "client-supplied",
+    "note": "official product photo"
+  }
+}
