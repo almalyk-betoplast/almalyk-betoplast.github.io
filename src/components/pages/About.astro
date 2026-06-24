@@ -66,6 +66,18 @@ const tr = t(lang);
     </div>
   </section>
 
+  <section class="section">
+    <div class="container">
+      <a class="related card reveal" href={site.related.url} target="_blank" rel="noopener">
+        <div class="related__body">
+          <p class="eyebrow">{tr.related.eyebrow}</p>
+          <p class="related__text">{tr.related.text}</p>
+        </div>
+        <span class="related__cta">{tr.related.cta} <span class="arrow">↗</span></span>
+      </a>
+    </div>
+  </section>
+
   <CtaBand />
 </Base>
 
@@ -91,4 +103,15 @@ const tr = t(lang);
   .facts > div { display: flex; gap: 1rem; padding-bottom: .9rem; border-bottom: 1px solid var(--line); }
   .facts dt { width: 130px; flex: none; font-size: .85rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; padding-top: .1rem; }
   .facts dd { font-weight: 500; }
+
+  .related {
+    display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+    padding: clamp(1.6rem, 3vw, 2.4rem);
+    background: var(--bg-soft); border-color: var(--line);
+  }
+  .related__body { max-width: 64ch; }
+  .related__text { margin-top: .6rem; color: var(--ink); }
+  .related__cta { font-weight: 600; color: var(--steel); white-space: nowrap; display: inline-flex; align-items: center; gap: .4rem; }
+  .related:hover .related__cta .arrow { transform: translate(2px, -2px); }
+  .related__cta .arrow { transition: transform .2s var(--ease); }
 </style>

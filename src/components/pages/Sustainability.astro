@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import CtaBand from '../CtaBand.astro';
+import { site } from '../../data/site';
 import { getLang, t } from '../../i18n/utils';
 
 const lang = getLang(Astro.currentLocale);
@@ -27,6 +28,9 @@ const tr = t(lang);
           </div>
         ))}
       </div>
+      <p class="sustain-related reveal">
+        <a href={site.related.url} target="_blank" rel="noopener">{tr.related.sustainabilityLink} <span class="arrow">↗</span></a>
+      </p>
     </div>
   </section>
 
@@ -49,4 +53,10 @@ const tr = t(lang);
   .commit { padding: 1.9rem 0; border-top: 2px solid var(--ink); }
   .commit h3 { margin-bottom: .7rem; }
   .commit p { color: var(--muted); font-size: .98rem; }
+
+  .sustain-related { margin-top: clamp(2rem, 4vw, 3rem); }
+  .sustain-related a { font-weight: 600; color: var(--steel); display: inline-flex; align-items: center; gap: .45rem; }
+  .sustain-related a:hover { color: var(--steel-500); }
+  .sustain-related a:hover .arrow { transform: translate(2px, -2px); }
+  .sustain-related .arrow { transition: transform .2s var(--ease); }
 </style>

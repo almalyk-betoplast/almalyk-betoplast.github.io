@@ -49,6 +49,13 @@ export const ui = {
       defaultHeading: 'Discuss supply, specifications and offtake',
       defaultText: 'Tell us your grade, format and volumes. We will come back with availability and terms.',
     },
+    related: {
+      eyebrow: 'Related company',
+      footerLabel: 'Sister company',
+      text: 'Our sister company, BETOPLAST AG, is a Swiss energy and infrastructure house — power projects, oil and gas, and energy trading. The copper we make feeds exactly that kind of power and electrification work.',
+      cta: 'Visit BETOPLAST AG',
+      sustainabilityLink: 'We make the copper; our sister company BETOPLAST AG builds the energy infrastructure',
+    },
     home: {
       heroEyebrow: 'Copper downstream · Uzbekistan',
       heroH1: 'Oxygen-free copper,<br />engineered downstream.',
@@ -241,6 +248,13 @@ export const ui = {
       defaultHeading: 'Обсудим поставки, спецификации и оффтейк',
       defaultText: 'Сообщите марку, формат и объёмы — вернёмся с наличием и условиями.',
     },
+    related: {
+      eyebrow: 'Родственная компания',
+      footerLabel: 'Родственная компания',
+      text: 'Наша родственная компания BETOPLAST AG — швейцарский энергетическо-инфраструктурный дом: энергопроекты, нефть и газ, энерготрейдинг. Медь, которую мы производим, питает как раз такие энергетические и электрификационные проекты.',
+      cta: 'Перейти на BETOPLAST AG',
+      sustainabilityLink: 'Мы производим медь; наша родственная компания BETOPLAST AG строит энергетическую инфраструктуру',
+    },
     home: {
       heroEyebrow: 'Медный передел · Узбекистан',
       heroH1: 'Бескислородная медь,<br />инженерный передел.',
@@ -432,6 +446,13 @@ export const ui = {
     cta: {
       defaultHeading: "Yetkazib berish, spetsifikatsiya va offteykni muhokama qilamiz",
       defaultText: "Marka, format va hajmlarni yuboring — mavjudligi va shartlari bilan qaytamiz.",
+    },
+    related: {
+      eyebrow: 'Aloqador kompaniya',
+      footerLabel: 'Aloqador kompaniya',
+      text: "Bizning aloqador kompaniyamiz BETOPLAST AG — Shveytsariya energetika va infratuzilma uyi: energetika loyihalari, neft va gaz, energiya savdosi. Biz ishlab chiqaradigan mis aynan shunday energetika va elektrlashtirish ishlarini taʼminlaydi.",
+      cta: "BETOPLAST AG saytiga oʻtish",
+      sustainabilityLink: "Biz misni ishlab chiqaramiz; aloqador kompaniyamiz BETOPLAST AG energetika infratuzilmasini quradi",
     },
     home: {
       heroEyebrow: 'Mis qayta ishlash · O‘zbekiston',
