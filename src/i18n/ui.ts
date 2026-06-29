@@ -50,11 +50,11 @@ export const ui = {
       defaultText: 'Tell us your grade, format and volumes. We will come back with availability and terms.',
     },
     related: {
-      eyebrow: 'Related company',
-      footerLabel: 'Sister company',
-      text: 'Our sister company, BETOPLAST AG, is a Swiss energy and infrastructure house — power projects, oil and gas, and energy trading. The copper we make feeds exactly that kind of power and electrification work.',
+      eyebrow: 'Parent company',
+      footerLabel: 'Parent company',
+      text: 'Our parent company, BETOPLAST AG, is a Swiss energy and infrastructure house — power projects, mining, oil and gas, and energy trading. The copper we make feeds exactly that kind of power and electrification work.',
       cta: 'Visit BETOPLAST AG',
-      sustainabilityLink: 'We make the copper; our sister company BETOPLAST AG builds the energy infrastructure',
+      sustainabilityLink: 'We make the copper; our parent company BETOPLAST AG builds the energy infrastructure',
     },
     home: {
       heroEyebrow: 'Copper downstream · Uzbekistan',
@@ -249,11 +249,11 @@ export const ui = {
       defaultText: 'Сообщите марку, формат и объёмы — вернёмся с наличием и условиями.',
     },
     related: {
-      eyebrow: 'Родственная компания',
-      footerLabel: 'Родственная компания',
-      text: 'Наша родственная компания BETOPLAST AG — швейцарский энергетическо-инфраструктурный дом: энергопроекты, нефть и газ, энерготрейдинг. Медь, которую мы производим, питает как раз такие энергетические и электрификационные проекты.',
+      eyebrow: 'Материнская компания',
+      footerLabel: 'Материнская компания',
+      text: 'Наша материнская компания BETOPLAST AG — швейцарский энергетическо-инфраструктурный дом: энергопроекты, добыча полезных ископаемых, нефть и газ, энерготрейдинг. Медь, которую мы производим, питает как раз такие энергетические и электрификационные проекты.',
       cta: 'Перейти на BETOPLAST AG',
-      sustainabilityLink: 'Мы производим медь; наша родственная компания BETOPLAST AG строит энергетическую инфраструктуру',
+      sustainabilityLink: 'Мы производим медь; наша материнская компания BETOPLAST AG строит энергетическую инфраструктуру',
     },
     home: {
       heroEyebrow: 'Медный передел · Узбекистан',
@@ -448,11 +448,11 @@ export const ui = {
       defaultText: "Marka, format va hajmlarni yuboring — mavjudligi va shartlari bilan qaytamiz.",
     },
     related: {
-      eyebrow: 'Aloqador kompaniya',
-      footerLabel: 'Aloqador kompaniya',
-      text: "Bizning aloqador kompaniyamiz BETOPLAST AG — Shveytsariya energetika va infratuzilma uyi: energetika loyihalari, neft va gaz, energiya savdosi. Biz ishlab chiqaradigan mis aynan shunday energetika va elektrlashtirish ishlarini taʼminlaydi.",
+      eyebrow: 'Bosh kompaniya',
+      footerLabel: 'Bosh kompaniya',
+      text: "Bizning bosh kompaniyamiz BETOPLAST AG — Shveytsariya energetika va infratuzilma uyi: energetika loyihalari, konchilik, neft va gaz, energiya savdosi. Biz ishlab chiqaradigan mis aynan shunday energetika va elektrlashtirish ishlarini taʼminlaydi.",
       cta: "BETOPLAST AG saytiga oʻtish",
-      sustainabilityLink: "Biz misni ishlab chiqaramiz; aloqador kompaniyamiz BETOPLAST AG energetika infratuzilmasini quradi",
+      sustainabilityLink: "Biz misni ishlab chiqaramiz; bosh kompaniyamiz BETOPLAST AG energetika infratuzilmasini quradi",
     },
     home: {
       heroEyebrow: 'Mis qayta ishlash · O‘zbekiston',
