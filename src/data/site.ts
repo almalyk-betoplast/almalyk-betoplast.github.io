@@ -9,6 +9,6 @@ export const site = {
   // Sister company (Swiss energy & infrastructure).
   related: {
     name: 'BETOPLAST AG',
-    url: 'https://betoplast.github.io',
+    url: 'https://betoplast.ch',
   },
 };
